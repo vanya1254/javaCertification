@@ -2,20 +2,20 @@ package program.view.commands;
 
 import program.view.Console;
 
-public class AddToy extends Command {
+import static java.lang.System.exit;
 
-    public AddToy(Console console) {
+public class Exit extends Command {
+    public Exit(Console console) {
         super(console);
     }
 
     @Override
     public void description() {
-        System.out.print("add toy\n");
+        System.out.print("exit\n");
     }
 
     @Override
     public void execute() {
-        Command cmd;
-        cmd.
+        exit(0);
     }
 }
