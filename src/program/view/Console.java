@@ -11,6 +11,12 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Console extends View {
+    private final static String INPUT_NAME = "Enter name of toy --> ";
+    private final static String INPUT_COUNT = "Enter count of toys --> ";
+    private final static String INPUT_CHANCE = "Enter chance of toy(ex. 1.0 < YOUR_CHOICE) --> ";
+    private final static String INPUT_COMMAND = "Enter command --> ";
+
+
     private Scanner sc = new Scanner(System.in);
     private Presenter presenter;
     private Menu menu;
@@ -43,20 +49,20 @@ public class Console extends View {
     }
 
     public String getName(){
-        System.out.println("Enter name of toy --> ");
+        System.out.print(INPUT_NAME);
         String name = sc.nextLine();
         return name;
     }
 
     public int getCount(){
-        System.out.println("Enter count of toys --> ");
+        System.out.print(INPUT_COUNT);
         int count = sc.nextInt();
         sc.nextLine();
         return count;
     }
 
     public double getChance(){
-        System.out.println("Enter chance of toy(ex. 1.0 < YOUR_CHOICE) --> ");
+        System.out.print(INPUT_CHANCE);
         double chance = sc.nextDouble();
         sc.nextLine();
         return chance;
@@ -65,7 +71,7 @@ public class Console extends View {
     public void goMenu(){
         while (true) {
             this.menu.description();
-            System.out.println("Enter command --> ");
+            System.out.print(INPUT_COMMAND);
             int command = sc.nextInt() - 1;
             sc.nextLine();
             this.menu.execute(command);

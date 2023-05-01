@@ -2,16 +2,21 @@ package program.model.shop;
 
 import program.model.toys.Toy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Shop {
-    private static final int startSize = 1;
     private int total;
     private List<Toy> store;
 
     public Shop(int total, List<Toy> store) {
         this.total = total;
         this.store = store;
+    }
+
+    public Shop(){
+        this.total = 0;
+        this.store = new ArrayList<Toy>();
     }
 
     public int getTotal() {

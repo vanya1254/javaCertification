@@ -22,7 +22,7 @@ public class Menu {
     }
 
     public void description() {
-        System.out.println("Menu:\n");
+        System.out.println("\nMenu:\n");
         for (int i = 0; i < this.commands.size(); i++) {
             System.out.printf("%d) ", i + 1);
             this.commands.get(i).description();
