@@ -3,7 +3,6 @@ package program.presenter;
 import program.model.Model;
 import program.view.Console;
 import program.view.View;
-import program.view.commands.Command;
 
 public class Presenter {
     private Model model;
@@ -36,8 +35,10 @@ public class Presenter {
         } return false;
     }
 
-    public void drawToy(){
-        this.model.draw();
+    public boolean drawToy(){
+        if (this.model.draw()){
+            return true;
+        } return false;
     }
 
     public void giveToy(){

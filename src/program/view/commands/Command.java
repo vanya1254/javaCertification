@@ -1,7 +1,5 @@
 package program.view.commands;
 
-import program.view.Console;
-
 public abstract class Command {
 
 

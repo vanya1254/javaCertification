@@ -1,14 +1,11 @@
 package program.model;
 
 import com.google.gson.Gson;
-import program.model.shop.Raffle;
 import program.model.shop.Shop;
 import program.model.toys.Toy;
 
-
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 
 public class FileManager {
     private final static String PATH_STORE = "src\\program\\model\\store.json";

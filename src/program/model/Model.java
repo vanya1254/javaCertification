@@ -25,8 +25,10 @@ public class Model {
         } return false;
     }
 
-    public void draw(){
-        this.raffle.drawToy();
+    public boolean draw(){
+        if (this.raffle.drawToy()){
+            return true;
+        } return false;
     }
 
     public void gift(){

@@ -1,14 +1,11 @@
 package program.model.shop;
 
-import program.model.FileManager;
 import program.model.toys.Toy;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 public class Raffle {
-    private final static String EMPTY_STORE = "\nThe store is empty!\n";
     private final static String EMPTY_RAFFLE = "\nAll toys were received!\n";
     private List<Toy> raffle;
     private Shop shop;
@@ -24,7 +21,7 @@ public class Raffle {
      count * chance, у какой игрушки это значение выше, ту и добавляем в raffle
      предварительно уменьшив count данной игрушки
      */
-    public void drawToy() {
+    public boolean drawToy() {
         if (this.shop.getStore().size() != 0) {
             int indexToy = 0;
             Toy prize = this.shop.getStore().get(0);
@@ -39,7 +36,8 @@ public class Raffle {
             this.shop.getStore().get(indexToy).setCount(prize.getCount() - 1);
             prize.setCount(prize.getCount());
             this.raffle.add(prize);
-        } else System.out.println(EMPTY_STORE);
+            return true;
+        } return false;
     }
 
     /*
