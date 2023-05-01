@@ -2,6 +2,7 @@ package program.model;
 
 import program.model.shop.Raffle;
 import program.model.shop.Shop;
+import program.model.toys.Toy;
 
 public class Model {
     private Raffle raffle;
@@ -23,7 +24,8 @@ public class Model {
     }
 
     public void gift(){
-        this.raffle.giveToy();
+        Toy gift = this.raffle.giveToy();
+        this.fM.writeJson(gift);
     }
 
     public void save(){

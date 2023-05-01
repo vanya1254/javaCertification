@@ -15,7 +15,10 @@ public class Console extends View {
     private final static String INPUT_COUNT = "Enter count of toys --> ";
     private final static String INPUT_CHANCE = "Enter chance of toy(ex. 1.0 < YOUR_CHOICE) --> ";
     private final static String INPUT_COMMAND = "Enter command --> ";
-
+    private final static String EXCEPTION_INT = "\nPlease enter an integer\n";
+    private final static String EXCEPTION_DOUBLE = "\nPlease enter a double number(ex. 1.2)\n";
+    private final static String EXCEPTION_INT_VALUE = "\nShould be: 0 < YOUR\n";
+    private final static String EXCEPTION_DOUBLE_VALUE = "\nShould be: 1 < YOUR < 2\n";
 
     private Scanner sc = new Scanner(System.in);
     private Presenter presenter;
@@ -37,34 +40,54 @@ public class Console extends View {
     }
 
 
-    public String scanString(){
+    public String scanString(String message){
+        System.out.print(message);
         String str = sc.nextLine();
         return str;
     }
 
-    public int scanInt(){
-        int intValue = sc.nextInt();
-        sc.nextLine();
-        return intValue;
+    public int scanInt(String message){
+        while (true) {
+            try {
+                System.out.print(message);
+                String value = sc.nextLine();
+                int intValue = Integer.valueOf(value);
+
+                if (intValue > 0) return intValue;
+                else System.out.println(EXCEPTION_INT_VALUE);
+            } catch (Exception e) {
+                System.out.println(EXCEPTION_INT);
+            }
+        }
+    }
+
+    public double scanDouble(String message){
+        while (true) {
+            try {
+                System.out.print(message);
+                String value = sc.nextLine();
+                double doubleValue = Double.valueOf(value);
+
+                if (doubleValue > 1 && doubleValue < 2) return doubleValue;
+                else System.out.println(EXCEPTION_DOUBLE_VALUE);
+            } catch (Exception e) {
+                System.out.println(EXCEPTION_DOUBLE);
+            }
+        }
     }
 
     public String getName(){
-        System.out.print(INPUT_NAME);
-        String name = sc.nextLine();
+        String name = this.scanString(INPUT_NAME);
         return name;
     }
 
     public int getCount(){
-        System.out.print(INPUT_COUNT);
-        int count = sc.nextInt();
-        sc.nextLine();
+        int count = this.scanInt(INPUT_COUNT);
         return count;
     }
 
     public double getChance(){
-        System.out.print(INPUT_CHANCE);
-        double chance = sc.nextDouble();
-        sc.nextLine();
+        double chance = this.scanDouble(INPUT_CHANCE);
         return chance;
     }
 

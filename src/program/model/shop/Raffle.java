@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Queue;
 
 public class Raffle {
+    private final static String EMPTY_STORE = "\nThe store is empty!\n";
+    private final static String EMPTY_RAFFLE = "\nAll toys were received!\n";
     private List<Toy> raffle;
     private Shop shop;
 
@@ -23,26 +25,31 @@ public class Raffle {
      предварительно уменьшив count данной игрушки
      */
     public void drawToy() {
-        int indexToy = 0;
-        Toy prize = this.shop.getStore().get(0);
-        int maxChance = this.shop.getCountToys() * this.shop.getStore().get(0).getCount();
-        for (int i = 1; i < this.shop.getTotal(); i++) {
-            if (maxChance < this.shop.getCountToys() * this.shop.getStore().get(i).getCount()) {
-                maxChance = this.shop.getCountToys() * this.shop.getStore().get(i).getCount();
-                prize = this.shop.getStore().get(i);
-                indexToy = i;
+        if (this.shop.getStore().size() != 0) {
+            int indexToy = 0;
+            Toy prize = this.shop.getStore().get(0);
+            int maxChance = this.shop.getCountToys() * this.shop.getStore().get(0).getCount();
+            for (int i = 1; i < this.shop.getTotal(); i++) {
+                if (maxChance < this.shop.getCountToys() * this.shop.getStore().get(i).getCount()) {
+                    maxChance = this.shop.getCountToys() * this.shop.getStore().get(i).getCount();
+                    prize = this.shop.getStore().get(i);
+                    indexToy = i;
+                }
             }
-        }
-        this.shop.getStore().get(indexToy).setCount(prize.getCount() - 1);
-        prize.setCount(prize.getCount());
-        this.raffle.add(prize);
+            this.shop.getStore().get(indexToy).setCount(prize.getCount() - 1);
+            prize.setCount(prize.getCount());
+            this.raffle.add(prize);
+        } else System.out.println(EMPTY_STORE);
     }
 
     /*
-    Вручаем игрушку и удаляем из raffle
+    Вручаем игрушку(выводим в консоль и записываем в raffle) и удаляем из raffle
      */
-    public void giveToy() {
-        System.out.printf("\n Your gift --> %s\n\n", this.raffle.get(0).getName());
-        this.raffle.remove(0);
+    public Toy giveToy() {
+        if (this.raffle.size() != 0) {
+            System.out.printf("\n Your gift --> %s\n\n", this.raffle.get(0).getName());
+            return this.raffle.remove(0);
+        } else System.out.println(EMPTY_RAFFLE);
+        return null;
     }
 }
