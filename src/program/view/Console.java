@@ -19,6 +19,8 @@ public class Console extends View {
     private final static String EXCEPTION_DOUBLE = "\nPlease enter a double number(ex. 1.2)\n";
     private final static String EXCEPTION_INT_VALUE = "\nShould be: 0 < YOUR\n";
     private final static String EXCEPTION_DOUBLE_VALUE = "\nShould be: 1 < YOUR < 2\n";
+    private final static String SUCCESS_SET_CHANCE = "\nChance successfully changed!\n";
+    private final static String NOT_FOUND_TOY_NAME = "\nNo toy with that name!\n";
 
     private Scanner sc = new Scanner(System.in);
     private Presenter presenter;
@@ -103,6 +105,12 @@ public class Console extends View {
 
     public void addToy(){
         this.presenter.addToy(this.getName(), this.getCount(), this.getChance());
+    }
+
+    public void setChanceToy(){
+        if (this.presenter.setChanceToy(this.getName(), this.getChance())){
+            System.out.println(SUCCESS_SET_CHANCE);
+        } else System.out.println(NOT_FOUND_TOY_NAME);
     }
 
     public void drawToy(){

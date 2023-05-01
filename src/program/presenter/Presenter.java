@@ -30,6 +30,12 @@ public class Presenter {
         this.model.addToyToShop(name, count, chance);
     }
 
+    public boolean setChanceToy(String name, double chance){
+        if(this.model.setChance(name, chance)) {
+            return true;
+        } return false;
+    }
+
     public void drawToy(){
         this.model.draw();
     }

@@ -42,10 +42,22 @@ public class Shop {
         return countToys;
     }
 
-    public Toy getToy(int id) {
-        return this.store.get(id);
+    public Toy findToyByName(String name) {
+        if (this.total != 0) {
+            for (int i = 0; i < this.total; i++) {
+                if (this.store.get(i).getName().equals(name))
+                    return this.store.get(i);
+            }
+        }
+        return null;
     }
 
-
+    public boolean setToyChance(String name, double chance){
+        Toy toy = this.findToyByName(name);
+        if (toy != null) {
+            toy.setChance(chance);
+            return true;
+        } return false;
+    }
 
 }

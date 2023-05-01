@@ -19,6 +19,12 @@ public class Model {
         this.shop.addToy(name, count, chance);
     }
 
+    public boolean setChance(String name, double chance) {
+        if (this.shop.setToyChance(name, chance)){
+            return true;
+        } return false;
+    }
+
     public void draw(){
         this.raffle.drawToy();
     }

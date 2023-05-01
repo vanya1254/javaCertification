@@ -11,6 +11,7 @@ public class Menu {
     public Menu(Console console) {
         this.commands = new ArrayList<>();
         this.commands.add(new AddToy(console));
+        this.commands.add(new SetChance(console));
         this.commands.add(new DrawToy(console));
         this.commands.add(new GiveToy(console));
         this.commands.add(new SaveStore(console));
