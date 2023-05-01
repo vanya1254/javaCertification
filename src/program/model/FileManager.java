@@ -32,7 +32,7 @@ public class FileManager {
     public void writeJson(Shop shop){
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter("src\\program\\model\\store.json")){
-            writer.write(shop.getStore().toString());
+            writer.write(gson.toJson(shop));
         } catch (Exception e) {}
     }
 }

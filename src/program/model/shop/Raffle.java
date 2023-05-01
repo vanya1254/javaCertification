@@ -34,7 +34,7 @@ public class Raffle {
             }
         }
         this.shop.getStore().get(indexToy).setCount(prize.getCount() - 1);
-        prize.setCount(prize.getCount() - 1);
+        prize.setCount(prize.getCount());
         this.raffle.add(prize);
     }
 
@@ -42,7 +42,7 @@ public class Raffle {
     Вручаем игрушку и удаляем из raffle
      */
     public void giveToy() {
-        System.out.printf("\n Your gift --> %s", this.raffle.get(0).getName());
+        System.out.printf("\n Your gift --> %s\n\n", this.raffle.get(0).getName());
         this.raffle.remove(0);
     }
 }

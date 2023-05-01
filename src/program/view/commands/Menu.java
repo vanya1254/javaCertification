@@ -7,9 +7,8 @@ import java.util.List;
 
 public class Menu {
     private List<Command> commands;
-    private Console console = new Console();
 
-    public Menu() {
+    public Menu(Console console) {
         this.commands = new ArrayList<>();
         this.commands.add(new AddToy(console));
         this.commands.add(new DrawToy(console));

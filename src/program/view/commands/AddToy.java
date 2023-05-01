@@ -4,8 +4,10 @@ import program.view.Console;
 
 public class AddToy extends Command {
 
+    private Console console;
+
     public AddToy(Console console) {
-        super(console);
+        this.console = console;
     }
 
     @Override
@@ -15,7 +17,6 @@ public class AddToy extends Command {
 
     @Override
     public void execute() {
-        Command cmd;
-        cmd.
+        this.console.addToy();
     }
 }

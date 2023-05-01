@@ -5,8 +5,10 @@ import program.view.Console;
 import static java.lang.System.exit;
 
 public class Exit extends Command {
+    private Console console;
+
     public Exit(Console console) {
-        super(console);
+        this.console = console;
     }
 
     @Override

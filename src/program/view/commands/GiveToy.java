@@ -3,9 +3,10 @@ package program.view.commands;
 import program.view.Console;
 
 public class GiveToy extends Command {
+    private Console console;
 
     public GiveToy(Console console) {
-        super(console);
+        this.console = console;
     }
 
     @Override
@@ -15,6 +16,6 @@ public class GiveToy extends Command {
 
     @Override
     public void execute() {
-
+        this.console.giveToy();
     }
 }

@@ -25,4 +25,8 @@ public class Model {
     public void gift(){
         this.raffle.giveToy();
     }
+
+    public void save(){
+        this.fM.writeJson(this.shop);
+    }
 }

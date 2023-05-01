@@ -3,6 +3,7 @@ package program;
 import com.google.gson.Gson;
 import program.model.FileManager;
 import program.model.shop.Shop;
+import program.presenter.Presenter;
 import program.view.Console;
 
 public class Program {
@@ -12,7 +13,10 @@ public class Program {
 //
 //        System.out.println(shop.getStore());
 
-        Console cs = new Console();
-        cs.goMenu();
+//        Console cs = new Console();
+//        cs.goMenu();
+
+        Presenter ps = new Presenter();
+        ps.start();
     }
 }

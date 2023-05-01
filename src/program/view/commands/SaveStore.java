@@ -3,8 +3,10 @@ package program.view.commands;
 import program.view.Console;
 
 public class SaveStore extends Command {
+    private Console console;
+
     public SaveStore(Console console) {
-        super(console);
+        this.console = console;
     }
 
     @Override
@@ -14,6 +16,6 @@ public class SaveStore extends Command {
 
     @Override
     public void execute() {
-
+        this.console.saveStore();
     }
 }

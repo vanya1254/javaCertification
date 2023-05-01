@@ -3,8 +3,10 @@ package program.view.commands;
 import program.view.Console;
 
 public class DrawToy extends Command {
+    private Console console;
+
     public DrawToy(Console console) {
-        super(console);
+        this.console = console;
     }
 
     @Override
@@ -14,6 +16,6 @@ public class DrawToy extends Command {
 
     @Override
     public void execute() {
-
+        this.console.drawToy();
     }
 }
